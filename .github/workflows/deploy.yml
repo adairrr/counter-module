@@ -1,0 +1,38 @@
+---
+name: Deploy Contracts
+on:
+  # https://docs.github.com/en/actions/reference/events-that-trigger-workflows#workflow_dispatch
+  workflow_dispatch:
+  push:
+    branches: [ 'mainline' ]
+    paths:
+      - 'contracts/src/**.rs'
+
+jobs:
+  build:
+    runs-on: self-hosted
+    env:
+      VERSION_CONTROL_ADDRESS: ${{ env.VERSION_CONTROL_ADDRESS }}
+      TEST_MNEMONIC: ${{ env.TEST_MNEMONIC }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          target: wasm32-unknown-unknown
+      - name: Run cargo wasm
+        uses: actions-rs/cargo@v1
+        with:
+          command: wasm
+        env:
+          RUSTFLAGS='-C link-arg=-s'
+        # cargo run --package scripts --bin deploy_app
+      - name: Run deployment script
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+        args:
+          - --package scripts
+          - --bin deploy_app
+        env:
+          VERSION_CONTROL_ADDRESS=${{ env.VERSION_CONTROL_ADDRESS }}
