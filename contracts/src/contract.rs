@@ -9,7 +9,7 @@ use crate::msg::{
     TemplateExecuteMsg, TemplateInstantiateMsg, TemplateMigrateMsg, TemplateQueryMsg,
 };
 
-// As an app writer, the only changes necessary to this file are with the handlers and API dependencies on the `TEMPLATE_APP` const.
+// As an app writer, the only changes necessary to this file are with the handlers and API dependencies on the `counter_app` const.
 pub type CounterApp = AppContract<
     CounterError,
     TemplateExecuteMsg,
@@ -23,7 +23,7 @@ pub type CounterResult = Result<Response, CounterError>;
 /// The namespace for the app, like "abstract" -> "abstract:template"
 pub const MODULE_NAMESPACE: &str = "testing";
 /// The name of the app, excluding the namespace
-pub const MODULE_NAME: &str = "counter";
+pub const MODULE_NAME: &str = "counter_app";
 /// The initial version of the app, which will use the package version if not altered
 const MODULE_VERSION: &str = env!("CARGO_PKG_VERSION");
 

@@ -9,9 +9,9 @@ use cosmwasm_std::Addr;
 use semver::Version;
 
 use interfaces::template::CounterApp;
-use template_app::contract::{MODULE_NAME, MODULE_NAMESPACE};
+use counter_app::contract::{MODULE_NAME, MODULE_NAMESPACE};
 
-// use template_app::msg::ConfigResponse;
+// use counter_app::msg::ConfigResponse;
 
 // To deploy the app we need to get the memory and then register it
 // We can then deploy a test OS that uses that new app

@@ -1,5 +1,4 @@
 [package]
-# TODO rename
 name = "counter-app"
 version.workspace = true
 authors.workspace = true

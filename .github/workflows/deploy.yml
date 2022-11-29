@@ -7,6 +7,7 @@ on:
     branches: [ 'mainline' ]
     paths:
       - 'contracts/src/**.rs'
+      - '.github/workflows/deploy.yml'
 
 env:
   VERSION_CONTROL_ADDRESS: juno16enwrxhdtsdk8mkkcaj37fgp37wz0r3err4hxfz52lcdyayexnxs4468mu

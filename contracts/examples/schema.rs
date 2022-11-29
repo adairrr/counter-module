@@ -1,8 +1,8 @@
 use std::env::current_dir;
 use std::fs::create_dir_all;
 
-use template_app_name::contract::CounterApp;
-use template_app_name::msg::ConfigResponse;
+use counter_app_name::contract::CounterApp;
+use counter_app_name::msg::ConfigResponse;
 use cosmwasm_schema::{export_schema, remove_schemas, schema_for};
 
 fn main() {

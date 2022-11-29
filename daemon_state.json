@@ -1,8 +1,12 @@
 {
   "juno": {
     "uni-5": {
-      "addresses": {},
-      "code_ids": {}
+      "addresses": {
+        "abstract:version_control": "junoxxx"
+      },
+      "code_ids": {
+        "testing:counter_app": 2787
+      }
     }
   }
 }

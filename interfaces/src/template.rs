@@ -6,8 +6,8 @@ use cosmwasm_std::Coin;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 
-use template_app::contract::MODULE_NAME;
-use template_app::msg::{
+use counter_app::contract::MODULE_NAME;
+use counter_app::msg::{
     TemplateExecuteMsg, TemplateInstantiateMsg, TemplateMigrateMsg, TemplateQueryMsg,
 };
 
