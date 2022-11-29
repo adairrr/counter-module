@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       VERSION_CONTROL_ADDRESS: ${{ env.VERSION_CONTROL_ADDRESS }}
       TEST_MNEMONIC: ${{ env.TEST_MNEMONIC }}
