@@ -14,9 +14,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      VERSION_CONTROL_ADDRESS: ${{ env.VERSION_CONTROL_ADDRESS }}
-      TEST_MNEMONIC: ${{ secrets.TEST_MNEMONIC }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
@@ -28,14 +25,15 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-        args: --package counter-app --release --target wasm32-unknown-unknown
+          args: --package counter-app --release --target wasm32-unknown-unknown
         env:
-          RUSTFLAGS='-C link-arg=-s'
+          RUSTFLAGS: '-C link-arg=-s'
         # cargo run --package scripts --bin deploy_app
       - name: Run deployment script
         uses: actions-rs/cargo@v1
         with:
           command: run
-        args: --package scripts --bin deploy_app
+          args: --package scripts --bin deploy_app
         env:
-          VERSION_CONTROL_ADDRESS=${{ env.VERSION_CONTROL_ADDRESS }}
+          VERSION_CONTROL_ADDRESS: ${{ env.VERSION_CONTROL_ADDRESS }}
+          TEST_MNEMONIC: ${{ secrets.TEST_MNEMONIC }}
