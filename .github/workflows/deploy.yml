@@ -36,5 +36,12 @@ jobs:
           command: run
           args: --package scripts --bin deploy_app
         env:
+          CHAIN: "juno"
+          DEPLOYMENT: "debugging"
+          NETWORK: "local"
+          RUST_LOG: info
+          WASM_DIR: "./target/wasm32-unknown-unknown/release"
+          DAEMON_STATE_PATH: "./daemon_state.json"
+
           VERSION_CONTROL_ADDRESS: ${{ env.VERSION_CONTROL_ADDRESS }}
           TEST_MNEMONIC: ${{ secrets.TEST_MNEMONIC }}
