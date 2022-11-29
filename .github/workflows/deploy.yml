@@ -8,18 +8,22 @@ on:
     paths:
       - 'contracts/src/**.rs'
 
+env:
+  VERSION_CONTROL_ADDRESS: juno16enwrxhdtsdk8mkkcaj37fgp37wz0r3err4hxfz52lcdyayexnxs4468mu
+
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
       VERSION_CONTROL_ADDRESS: ${{ env.VERSION_CONTROL_ADDRESS }}
-      TEST_MNEMONIC: ${{ env.TEST_MNEMONIC }}
+      TEST_MNEMONIC: ${{ secrets.TEST_MNEMONIC }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: nightly
           target: wasm32-unknown-unknown
+          override: true
       - name: Run cargo wasm
         uses: actions-rs/cargo@v1
         with:
