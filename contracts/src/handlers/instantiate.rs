@@ -1,6 +1,6 @@
 use cosmwasm_std::{DepsMut, Env, MessageInfo, Response};
 
-use crate::contract::{TemplateApp, TemplateResult, MODULE_NAME};
+use crate::contract::{CounterApp, CounterResult, MODULE_NAME};
 
 use crate::msg::TemplateInstantiateMsg;
 use crate::state::{Config, CONFIG, COUNTS};
@@ -10,9 +10,9 @@ pub fn instantiate_handler(
     deps: DepsMut,
     _env: Env,
     _info: MessageInfo,
-    _app: TemplateApp,
+    _app: CounterApp,
     msg: TemplateInstantiateMsg,
-) -> TemplateResult {
+) -> CounterResult {
     // Initial config
     let config: Config = Config {
         max_count: msg.max_count,

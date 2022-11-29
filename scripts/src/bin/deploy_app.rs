@@ -8,7 +8,7 @@ use boot_core::prelude::{instantiate_daemon_env, ContractInstance};
 use cosmwasm_std::Addr;
 use semver::Version;
 
-use interfaces::template::TemplateApp;
+use interfaces::template::CounterApp;
 use template_app::contract::{MODULE_NAME, MODULE_NAMESPACE};
 
 // use template_app::msg::ConfigResponse;
@@ -35,7 +35,7 @@ pub fn deploy_app() -> anyhow::Result<()> {
 
     // Upload and register your module
     let app_name = format!("{}:{}", MODULE_NAMESPACE, MODULE_NAME);
-    let mut app = TemplateApp::new(&app_name, &chain);
+    let mut app = CounterApp::new(&app_name, &chain);
     let app_version = Version::parse(APP_VERSION)?;
     version_control.upload_and_register_module(&mut app.as_instance_mut(), &app_version)?;
 

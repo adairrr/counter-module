@@ -1,4 +1,4 @@
-use crate::contract::TemplateApp;
+use crate::contract::CounterApp;
 use crate::msg::{ConfigResponse, TemplateQueryMsg, UserCountResponse, UserCountsResponse};
 use crate::state::{CONFIG, COUNTS};
 use cosmwasm_std::{to_binary, Addr, Binary, Deps, Env, Order, StdResult, Uint128};
@@ -11,7 +11,7 @@ const MAX_PAGE_SIZE: u8 = 20;
 pub fn query_handler(
     deps: Deps,
     env: Env,
-    _app: &TemplateApp,
+    _app: &CounterApp,
     msg: TemplateQueryMsg,
 ) -> StdResult<Binary> {
     match msg {

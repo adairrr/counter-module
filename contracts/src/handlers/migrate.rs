@@ -1,6 +1,6 @@
 use cosmwasm_std::{DepsMut, Env, Response};
 
-use crate::contract::{TemplateApp, TemplateResult};
+use crate::contract::{CounterApp, CounterResult};
 
 use crate::msg::TemplateMigrateMsg;
 
@@ -9,8 +9,8 @@ use crate::msg::TemplateMigrateMsg;
 pub fn migrate_handler(
     _deps: DepsMut,
     _env: Env,
-    _app: TemplateApp,
+    _app: CounterApp,
     _msg: TemplateMigrateMsg,
-) -> TemplateResult {
+) -> CounterResult {
     Ok(Response::default())
 }

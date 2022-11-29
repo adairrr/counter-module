@@ -18,9 +18,9 @@ type AppMigrateMsg = app::MigrateMsg<TemplateMigrateMsg>;
 
 /// Contract wrapper for deploying with BOOT
 #[boot_contract(AppInstantiateMsg, AppExecuteMsg, AppQueryMsg, AppMigrateMsg)]
-pub struct TemplateApp<Chain>;
+pub struct CounterApp<Chain>;
 
-impl<Chain: BootEnvironment> TemplateApp<Chain>
+impl<Chain: BootEnvironment> CounterApp<Chain>
 where
     TxResponse<Chain>: IndexResponse,
 {

@@ -1,13 +1,13 @@
 use cosmwasm_std::{DepsMut, Env, Reply};
 
-use crate::contract::{TemplateApp, TemplateResult};
+use crate::contract::{CounterApp, CounterResult};
 
 pub fn example_reply_handler(
     _deps: DepsMut,
     _env: Env,
-    _app: TemplateApp,
+    _app: CounterApp,
     _reply: Reply,
-) -> TemplateResult {
+) -> CounterResult {
     // Logic to execute on example reply
     todo!()
 }
