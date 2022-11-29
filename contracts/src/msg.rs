@@ -29,6 +29,7 @@
 //! Migrating this contract is done by calling `ExecuteMsg::Upgrade` on [`crate::manager`] with `crate::TEMPLATE` as module.
 
 use cosmwasm_std::{Addr, Uint128};
+use cosmwasm_schema::QueryResponses;
 
 /// Migrate msg
 #[cosmwasm_schema::cw_serde]
@@ -52,19 +53,24 @@ pub enum TemplateExecuteMsg {
 }
 
 #[cosmwasm_schema::cw_serde]
+#[derive(QueryResponses)]
 pub enum TemplateQueryMsg {
     /// Returns [`ConfigResponse`]
+    #[returns(ConfigResponse)]
     Config {},
     /// Returns the counts of the users
     /// Returns [`UserCountsResponse`]
+    #[returns(UserCountsResponse)]
     UserCountList {
         page_token: Option<String>,
         page_size: Option<u8>,
     },
+    #[returns(UserCountsResponse)]
     UserCounts {
         users: Vec<Addr>,
     },
     /// Return the calling user's count if any
+    #[returns(UserCountResponse)]
     UserCount {
         user: Addr,
     },
