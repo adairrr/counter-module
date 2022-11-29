@@ -1,5 +1,5 @@
 [alias]
-wasm = "build --package template-app-name --release --target wasm32-unknown-unknown"
+wasm = "build --package counter-app --release --target wasm32-unknown-unknown"
 unit-test = "test --lib"
 schema = "run --example schema"
 deploy = "run --package scripts --bin deploy_app"

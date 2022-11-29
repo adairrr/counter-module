@@ -23,7 +23,8 @@ jobs:
       - name: Run cargo wasm
         uses: actions-rs/cargo@v1
         with:
-          command: wasm
+          command: build
+        args: --package counter-app --release --target wasm32-unknown-unknown
         env:
           RUSTFLAGS='-C link-arg=-s'
         # cargo run --package scripts --bin deploy_app
@@ -31,8 +32,6 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: run
-        args:
-          - --package scripts
-          - --bin deploy_app
+        args: --package scripts --bin deploy_app
         env:
           VERSION_CONTROL_ADDRESS=${{ env.VERSION_CONTROL_ADDRESS }}
