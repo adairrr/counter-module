@@ -96,7 +96,7 @@ jobs:
           # TODO: dynamic version and name
           destination_folder: testing/counter-app/0.0.1
           destination_base_branch: main
-          destination_head_branch: main
+          destination_head_branch: update/counter-app/0.0.1
           user_email: '32375605+adairrr@users.noreply.github.com'
           user_name: adairrr
           pull_request_reviewers: adairrr
