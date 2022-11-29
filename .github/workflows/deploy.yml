@@ -63,7 +63,7 @@ jobs:
   upload-schema:
     runs-on: ubuntu-latest
     env:
-      SCHEMA_FILE: ${{ env.SCHEMA_DIR }}/counter-app.json
+      SCHEMA_FILE: $SCHEMA_DIR/counter-app.json
     steps:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
